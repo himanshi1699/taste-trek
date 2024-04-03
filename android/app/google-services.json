@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "741912449269",
+    "project_id": "tastetrek-bafee",
+    "storage_bucket": "tastetrek-bafee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:741912449269:android:b43f0367376440a0cd75bc",
+        "android_client_info": {
+          "package_name": "com.sixamtech.tastetrek"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQSsMLTcXzb5c8s0jdDWeyVM3pvJmfOvY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
