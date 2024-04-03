@@ -47,7 +47,6 @@ import 'di_container.dart' as di;
 import 'provider/time_provider.dart';
 import 'view/base/cookies_view.dart';
 
-
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
 late AndroidNotificationChannel channel;
