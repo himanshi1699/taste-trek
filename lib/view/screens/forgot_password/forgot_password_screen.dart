@@ -1,4 +1,4 @@
-import 'package:country_code_picker/country_code_picker.dart';
+// import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_restaurant/data/model/response/config_model.dart';
 import 'package:flutter_restaurant/data/model/response/response_model.dart';
@@ -44,7 +44,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     authProvider.setIsLoading = false;
     authProvider.setIsPhoneVerificationButttonLoading = false;
 
-    _countryCode = CountryCode.fromCountryCode(Provider.of<SplashProvider>(context, listen: false).configModel!.countryCode!).dialCode;
+    // _countryCode = CountryCode.fromCountryCode(Provider.of<SplashProvider>(context, listen: false).configModel!.countryCode!).dialCode;
   }
 
   @override
@@ -110,17 +110,17 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                             const SizedBox(height: Dimensions.paddingSizeSmall),
 
                             configModel.phoneVerification! ? Row(children: [
-                              CodePickerWidget(
-                                onChanged: (CountryCode countryCode) {
-                                  _countryCode = countryCode.dialCode;
-                                },
-                                initialSelection: _countryCode,
-                                favorite: [_countryCode!],
-                                showDropDownButton: true,
-                                padding: EdgeInsets.zero,
-                                textStyle: TextStyle(color: Theme.of(context).textTheme.displayLarge!.color),
-                                showFlagMain: true,
-                              ),
+                              // CodePickerWidget(
+                              //   onChanged: (CountryCode countryCode) {
+                              //     _countryCode = countryCode.dialCode;
+                              //   },
+                              //   initialSelection: _countryCode,
+                              //   favorite: [_countryCode!],
+                              //   showDropDownButton: true,
+                              //   padding: EdgeInsets.zero,
+                              //   textStyle: TextStyle(color: Theme.of(context).textTheme.displayLarge!.color),
+                              //   showFlagMain: true,
+                              // ),
 
                               Expanded(child: CustomTextField(
                                 hintText: getTranslated('number_hint', context),

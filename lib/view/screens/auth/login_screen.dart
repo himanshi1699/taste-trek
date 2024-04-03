@@ -1,4 +1,4 @@
-import 'package:country_code_picker/country_code_picker.dart';
+// import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_restaurant/data/model/response/config_model.dart';
 import 'package:flutter_restaurant/data/model/response/user_log_data.dart';
@@ -62,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
       _passwordController!.text = userData.password ?? '';
     }
 
-    countryCode ??= CountryCode.fromCountryCode(configModel.countryCode!).dialCode;
+    // countryCode ??= CountryCode.fromCountryCode(configModel.countryCode!).dialCode;
 
   }
 
@@ -140,18 +140,18 @@ class _LoginScreenState extends State<LoginScreen> {
                               inputType: TextInputType.emailAddress,
                             ):
                             Row(children: [
-                              CodePickerWidget(
-                                onChanged: (CountryCode value) {
-                                  countryCode = value.dialCode;
-                                  },
-                                initialSelection: countryCode,
-                                favorite: [countryCode ?? ''],
-                                showDropDownButton: true,
-                                padding: EdgeInsets.zero,
-                                showFlagMain: true,
-                                textStyle: TextStyle(color: Theme.of(context).textTheme.displayLarge!.color),
-
-                              ),
+                              // CodePickerWidget(
+                              //   onChanged: (CountryCode value) {
+                              //     countryCode = value.dialCode;
+                              //     },
+                              //   initialSelection: countryCode,
+                              //   favorite: [countryCode ?? ''],
+                              //   showDropDownButton: true,
+                              //   padding: EdgeInsets.zero,
+                              //   showFlagMain: true,
+                              //   textStyle: TextStyle(color: Theme.of(context).textTheme.displayLarge!.color),
+                              //
+                              // ),
                               Expanded(child: CustomTextField(
                                 hintText: getTranslated('number_hint', context),
                                 isShowBorder: true,
@@ -325,22 +325,22 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
 
-                            if(socialStatus!.isFacebook! || socialStatus.isGoogle!)
-                              const Center(child: SocialLoginWidget()),
+                            // if(socialStatus!.isFacebook! || socialStatus.isGoogle!)
+                            //   const Center(child: SocialLoginWidget()),
 
-                            Center(child: Text(getTranslated('OR', context)!, style: poppinsRegular.copyWith(fontSize: 12))),
+                            // Center(child: Text(getTranslated('OR', context)!, style: poppinsRegular.copyWith(fontSize: 12))),
 
-                            Center(
-                              child: InkWell(
-                                onTap: () {
-                                  RouterHelper.getDashboardRoute('home', );
-                                },
-                                child: RichText(text: TextSpan(children: [
-                                  TextSpan(text: '${getTranslated('continue_as_a', context)} ',  style: poppinsRegular.copyWith(fontSize: Dimensions.fontSizeSmall, color: ColorResources.getHintColor(context))),
-                                  TextSpan(text: getTranslated('guest', context), style: poppinsRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge!.color)),
-                                ])),
-                              ),
-                            ),
+                            // Center(
+                            //   child: InkWell(
+                            //     onTap: () {
+                            //       RouterHelper.getDashboardRoute('home', );
+                            //     },
+                            //     child: RichText(text: TextSpan(children: [
+                            //       TextSpan(text: '${getTranslated('continue_as_a', context)} ',  style: poppinsRegular.copyWith(fontSize: Dimensions.fontSizeSmall, color: ColorResources.getHintColor(context))),
+                            //       TextSpan(text: getTranslated('guest', context), style: poppinsRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge!.color)),
+                            //     ])),
+                            //   ),
+                            // ),
                           ],
                         ),
                       ),

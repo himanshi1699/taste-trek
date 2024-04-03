@@ -77,16 +77,16 @@ class WelcomeScreen extends StatelessWidget {
             ),
           ),
 
-          TextButton(
-            style: TextButton.styleFrom(
-              minimumSize: const Size(1, 40),
-            ),
-            onPressed: () =>  RouterHelper.getMainRoute(),
-            child: RichText(text: TextSpan(children: [
-              TextSpan(text: '${getTranslated('login_as_a', context)} ', style: rubikRegular.copyWith(color: Theme.of(context).hintColor.withOpacity(0.7))),
-              TextSpan(text: getTranslated('guest', context), style: rubikMedium.copyWith(color: Theme.of(context).textTheme.bodyLarge!.color)),
-            ])),
-          ),
+          // TextButton(
+          //   style: TextButton.styleFrom(
+          //     minimumSize: const Size(1, 40),
+          //   ),
+          //   onPressed: () =>  RouterHelper.getMainRoute(),
+          //   child: RichText(text: TextSpan(children: [
+          //     TextSpan(text: '${getTranslated('login_as_a', context)} ', style: rubikRegular.copyWith(color: Theme.of(context).hintColor.withOpacity(0.7))),
+          //     TextSpan(text: getTranslated('guest', context), style: rubikMedium.copyWith(color: Theme.of(context).textTheme.bodyLarge!.color)),
+          //   ])),
+          // ),
         ],
         ),
         )),
