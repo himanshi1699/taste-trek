@@ -28,10 +28,11 @@
     </queries>
 
     <application
-        android:label="TasteTrek"
+        android:label="Taste-Trek"
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:name="${applicationName}">
         android:allowBackup="false"
         android:fullBackupOnly="false"
         <meta-data android:name="com.google.android.geo.API_KEY"
