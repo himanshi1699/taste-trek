@@ -17,6 +17,8 @@ import 'package:flutter_restaurant/view/base/web_app_bar.dart';
 import 'package:flutter_restaurant/view/screens/auth/widget/code_picker_widget.dart';
 import 'package:provider/provider.dart';
 
+import '../../../utill/app_constants.dart';
+
 class OrderSearchScreen extends StatefulWidget {
   const OrderSearchScreen({Key? key}) : super(key: key);
 
@@ -301,6 +303,7 @@ class PhoneNumberFieldView extends StatelessWidget {
         //
         // ),
         Expanded(child: CustomTextField(
+          prefixText: AppConstants.canadaCountryCode,
           controller: phoneNumberTextController,
           focusNode: phoneFocusNode,
           inputType: TextInputType.phone,

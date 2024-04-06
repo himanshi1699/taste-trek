@@ -20,6 +20,8 @@ import 'package:flutter_restaurant/view/base/web_app_bar.dart';
 import 'package:flutter_restaurant/view/screens/auth/widget/code_picker_widget.dart';
 import 'package:provider/provider.dart';
 
+import '../../../utill/app_constants.dart';
+
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({Key? key}) : super(key: key);
 
@@ -125,6 +127,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                               Expanded(child: CustomTextField(
                                 hintText: getTranslated('number_hint', context),
                                 isShowBorder: true,
+                                prefixText: AppConstants.canadaCountryCode,
                                 controller: _phoneNumberController,
                                 inputType: TextInputType.phone,
                                 inputAction: TextInputAction.done,

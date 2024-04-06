@@ -140,4 +140,9 @@ class AppConstants {
     },
   ];
 
+
+  //Country Code
+
+  static String canadaCountryCode = '+1';
+
 }

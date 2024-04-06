@@ -97,8 +97,8 @@ class _SplashScreenState extends State<SplashScreen> {
               context.pushReplacement(widget.routeTo!);
             }else{
               ResponsiveHelper.isMobile() && Provider.of<OnBoardingProvider>(Get.context!, listen: false).showOnBoardingStatus
-                  ? RouterHelper.getLanguageRoute(false, action: RouteAction.pushNamedAndRemoveUntil) : Provider.of<BranchProvider>(Get.context!, listen: false).getBranchId() != -1
-                  ? RouterHelper.getMainRoute(action: RouteAction.pushNamedAndRemoveUntil) : RouterHelper.getBranchListScreen(action: RouteAction.pushNamedAndRemoveUntil);
+                  ? RouterHelper.getLanguageRoute(false, action: RouteAction.pushNamedAndRemoveUntil) : /*Provider.of<BranchProvider>(Get.context!, listen: false).getBranchId() != -1
+                  ? RouterHelper.getLoginRoute(action: RouteAction.pushNamedAndRemoveUntil) : */RouterHelper.getLoginRoute(action: RouteAction.pushNamedAndRemoveUntil);
 
             }
           }
