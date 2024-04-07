@@ -1,4 +1,4 @@
-import 'package:country_code_picker/country_code_picker.dart';
+// import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_restaurant/data/model/response/signup_model.dart';
 import 'package:flutter_restaurant/helper/email_checker.dart';
@@ -16,6 +16,8 @@ import 'package:flutter_restaurant/view/base/footer_view.dart';
 import 'package:flutter_restaurant/view/base/web_app_bar.dart';
 import 'package:flutter_restaurant/view/screens/auth/widget/code_picker_widget.dart';
 import 'package:provider/provider.dart';
+
+import '../../../utill/app_constants.dart';
 
 class CreateAccountScreen extends StatefulWidget {
   const CreateAccountScreen({Key? key}) : super(key: key);
@@ -44,7 +46,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   @override
   void initState() {
     super.initState();
-    _countryDialCode = CountryCode.fromCountryCode(Provider.of<SplashProvider>(context, listen: false).configModel!.countryCode!).code;
+    // _countryDialCode = CountryCode.fromCountryCode(Provider.of<SplashProvider>(context, listen: false).configModel!.countryCode!).code;
   }
 
   @override
@@ -124,22 +126,23 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           const SizedBox(height: Dimensions.paddingSizeSmall),
 
                           Row(children: [
-                            CodePickerWidget(
-                              onChanged: (CountryCode countryCode) {
-                                _countryDialCode = countryCode.code;
-                              },
-                              initialSelection: _countryDialCode,
-                              favorite: [_countryDialCode!],
-                              showDropDownButton: true,
-                              padding: EdgeInsets.zero,
-                              showFlagMain: true,
-                              textStyle: TextStyle(color: Theme.of(context).textTheme.displayLarge!.color),
-
-                            ),
+                            // CodePickerWidget(
+                            //   onChanged: (CountryCode countryCode) {
+                            //     _countryDialCode = countryCode.code;
+                            //   },
+                            //   initialSelection: _countryDialCode,
+                            //   favorite: [_countryDialCode!],
+                            //   showDropDownButton: true,
+                            //   padding: EdgeInsets.zero,
+                            //   showFlagMain: true,
+                            //   textStyle: TextStyle(color: Theme.of(context).textTheme.displayLarge!.color),
+                            //
+                            // ),
 
                             Expanded(child: CustomTextField(
                               hintText: getTranslated('number_hint', context),
                               isShowBorder: true,
+                              prefixText: AppConstants.canadaCountryCode,
                               controller: _numberController,
                               focusNode: _numberFocus,
                               nextFocus: config!.referEarnStatus! ? _referTextFocus : _passwordFocus,
@@ -276,7 +279,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                         lName: lastName,
                                         email: email,
                                         password: password,
-                                        phone: '${CountryCode.fromCountryCode(_countryDialCode!).dialCode}$number',
+                                        // phone: '${CountryCode.fromCountryCode(_countryDialCode!).dialCode}$number',
+                                        phone: '',
                                         referralCode: _referTextController.text.trim(),
                                       );
                                       await authProvider.registration(signUpModel, config).then((status) async {

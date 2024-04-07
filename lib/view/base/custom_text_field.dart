@@ -25,6 +25,7 @@ class CustomTextField extends StatefulWidget {
   final Function? onSuffixTap;
   final String? suffixIconUrl;
   final String? prefixIconUrl;
+  final String? prefixText;
   final bool isSearch;
   final Function? onSubmit;
   final bool isEnabled;
@@ -57,6 +58,7 @@ class CustomTextField extends StatefulWidget {
       this.isPassword = false,
       this.suffixIconUrl,
       this.prefixIconUrl,
+      this.prefixText = '',
       this.isSearch = false,
       this.languageProvider,
         this.inputDecoration,
@@ -103,7 +105,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
         fillColor: widget.fillColor ?? Theme.of(context).cardColor,
         hintStyle: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: Dimensions.fontSizeSmall, color: Theme.of(context).hintColor.withOpacity(0.7)),
         filled: true,
-        prefixIcon: widget.isShowPrefixIcon ? Padding(
+        prefixIcon: widget.prefixText != ''? Padding(
+          padding: const EdgeInsets.only(left: 10.0,right: 10.0),
+          child: Text(widget.prefixText??'',style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: Dimensions.fontSizeSmall, color: Theme.of(context).hintColor.withOpacity(0.7)) ,),
+        ):widget.isShowPrefixIcon ? Padding(
           padding: const EdgeInsets.only(left: Dimensions.paddingSizeLarge, right: Dimensions.paddingSizeSmall),
           child: Image.asset(widget.prefixIconUrl!, color: Theme.of(context).textTheme.bodyLarge?.color),
         ) : const SizedBox.shrink(),

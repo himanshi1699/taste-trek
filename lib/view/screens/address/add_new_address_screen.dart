@@ -1,4 +1,4 @@
-import 'package:country_code_picker/country_code_picker.dart';
+// import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_restaurant/data/model/response/address_model.dart';
 import 'package:flutter_restaurant/data/model/response/config_model.dart';
@@ -61,7 +61,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
 
 
   _initLoading() async {
-    countryCode = CountryCode.fromCountryCode(Provider.of<SplashProvider>(context, listen: false).configModel!.countryCode!).code;
+    // countryCode = CountryCode.fromCountryCode(Provider.of<SplashProvider>(context, listen: false).configModel!.countryCode!).code;
     final userModel =  Provider.of<ProfileProvider>(context, listen: false).userInfoModel;
     // print('country code ===> ${CountryPick.getCountryCode(userModel?.phone)}');
 
@@ -71,15 +71,15 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
     Provider.of<LocationProvider>(context, listen: false).updateAddressStatusMessage(message: '');
     Provider.of<LocationProvider>(context, listen: false).updateErrorMessage(message: '');
     if (widget.isEnableUpdate && widget.address != null) {
-      String? code = CountryPick.getCountryCode('${widget.address!.contactPersonNumber}');
-      if(code != null){
-        countryCode =  CountryCode.fromDialCode(code).code;
-      }
+      // String? code = CountryPick.getCountryCode('${widget.address!.contactPersonNumber}');
+      // if(code != null){
+      //   // countryCode =  CountryCode.fromDialCode(code).code;
+      // }
       _updateAddress = false;
       Provider.of<LocationProvider>(context, listen: false).updatePosition(CameraPosition(target: LatLng(double.parse(widget.address!.latitude!), double.parse(widget.address!.longitude!))), true, widget.address!.address, context, false);
 
       _contactPersonNameController.text = '${widget.address!.contactPersonName}';
-      _contactPersonNumberController.text = code != null ? '${widget.address!.contactPersonNumber}'.replaceAll(code, '') : '${widget.address!.contactPersonNumber}';
+      _contactPersonNumberController.text =/* code != null ? '${widget.address!.contactPersonNumber}'.replaceAll(code, '') : */'${widget.address!.contactPersonNumber}';
       _streetNumberController.text = widget.address!.streetNumber ?? '';
       _houseNumberController.text = widget.address!.houseNumber ?? '';
       _florNumberController.text = widget.address!.floorNumber ?? '';
@@ -92,17 +92,17 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
       }
     }else {
       if(authProvider.isLoggedIn()){
-        String? code = CountryPick.getCountryCode(userModel?.phone);
-
-        if(code != null){
-          countryCode = CountryCode.fromDialCode(code).code;
-        }
+        // String? code = CountryPick.getCountryCode(userModel?.phone);
+        //
+        // if(code != null){
+        //   // countryCode = CountryCode.fromDialCode(code).code;
+        // }
 
 
 
         _contactPersonNameController.text = '${userModel!.fName ?? ''}'
             ' ${userModel.lName ?? ''}';
-        _contactPersonNumberController.text = (code != null ? (userModel.phone ?? '').replaceAll(code, '') : userModel.phone ?? '');
+        _contactPersonNumberController.text = (/*code != null ? (userModel.phone ?? '').replaceAll(code, '') :*/ userModel.phone ?? '');
         _streetNumberController.text = widget.address!.streetNumber ?? '';
         _houseNumberController.text = widget.address!.houseNumber ?? '';
         _florNumberController.text = widget.address!.floorNumber ?? '';
@@ -242,7 +242,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                   AddressModel addressModel = AddressModel(
                     addressType: locationProvider.getAllAddressType[locationProvider.selectAddressIndex],
                     contactPersonName: _contactPersonNameController.text,
-                    contactPersonNumber: _contactPersonNumberController.text.trim().isEmpty ? '' : '${CountryCode.fromCountryCode(countryCode!).dialCode}${_contactPersonNumberController.text.trim()}',
+                    contactPersonNumber:/* _contactPersonNumberController.text.trim().isEmpty ?*/ '' /*: '${CountryCode.fromCountryCode(countryCode!).dialCode}${_contactPersonNumberController.text.trim()}'*/,
                     address: _locationTextController.text,
                     latitude: widget.isEnableUpdate ? locationProvider.position.latitude.toString()
                         : locationProvider.position.latitude.toString(),

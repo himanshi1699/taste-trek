@@ -1,4 +1,4 @@
-import 'package:country_code_picker/country_code_picker.dart';
+// import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_restaurant/helper/responsive_helper.dart';
 import 'package:flutter_restaurant/localization/language_constrants.dart';
@@ -17,6 +17,8 @@ import 'package:flutter_restaurant/view/base/web_app_bar.dart';
 import 'package:flutter_restaurant/view/screens/auth/widget/code_picker_widget.dart';
 import 'package:provider/provider.dart';
 
+import '../../../utill/app_constants.dart';
+
 class OrderSearchScreen extends StatefulWidget {
   const OrderSearchScreen({Key? key}) : super(key: key);
 
@@ -33,7 +35,7 @@ class _OrderSearchScreenState extends State<OrderSearchScreen> {
 
   @override
   void initState() {
-    countryCode = CountryCode.fromCountryCode(Provider.of<SplashProvider>(context, listen: false).configModel!.countryCode!).code;
+    // countryCode = CountryCode.fromCountryCode(Provider.of<SplashProvider>(context, listen: false).configModel!.countryCode!).code;
     super.initState();
   }
 
@@ -250,7 +252,7 @@ class TrackOrderButtonView extends StatelessWidget {
         final String orderId = orderIdTextController.text.trim();
         final int? checkOrderId = int.tryParse(orderId);
 
-        final String phoneNumber = '${CountryCode.fromCountryCode(countryCode!).dialCode}${phoneNumberTextController.text.trim()}';
+        final String phoneNumber = '${phoneNumberTextController.text.trim()}';
         if(orderId.isEmpty){
           showCustomSnackBar(getTranslated('enter_order_id', context));
         }else if(checkOrderId == null){
@@ -290,17 +292,18 @@ class PhoneNumberFieldView extends StatelessWidget {
           border: Border.all(color: Theme.of(context).primaryColor.withOpacity(0.2))
       ),
       child: Row(children: [
-        CodePickerWidget(
-          onChanged: (CountryCode value)=> onValueChange(value.code!),
-          initialSelection: countryCode,
-          favorite: [countryCode ?? ''],
-          showDropDownButton: true,
-          padding: EdgeInsets.zero,
-          showFlagMain: true,
-          textStyle: TextStyle(color: Theme.of(context).textTheme.displayLarge!.color),
-
-        ),
+        // CodePickerWidget(
+        //   onChanged: (CountryCode value)=> onValueChange(value.code!),
+        //   initialSelection: countryCode,
+        //   favorite: [countryCode ?? ''],
+        //   showDropDownButton: true,
+        //   padding: EdgeInsets.zero,
+        //   showFlagMain: true,
+        //   textStyle: TextStyle(color: Theme.of(context).textTheme.displayLarge!.color),
+        //
+        // ),
         Expanded(child: CustomTextField(
+          prefixText: AppConstants.canadaCountryCode,
           controller: phoneNumberTextController,
           focusNode: phoneFocusNode,
           inputType: TextInputType.phone,

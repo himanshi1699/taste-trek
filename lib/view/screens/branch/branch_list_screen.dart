@@ -259,7 +259,7 @@ class _BranchListScreenState extends State<BranchListScreen> {
     final branchProvider = Provider.of<BranchProvider>(context, listen: false);
     if(branchProvider.getBranchId() != branchProvider.selectedBranchId) {
       branchProvider.setBranch(branchProvider.selectedBranchId!);
-      RouterHelper.getMainRoute(action: RouteAction.pushNamedAndRemoveUntil);
+      RouterHelper.getLoginRoute(action: RouteAction.pushNamedAndRemoveUntil);
       showCustomSnackBar(getTranslated('branch_successfully_selected', context), isError: false);
     }else{
       showCustomSnackBar(getTranslated('this_is_your_current_branch', context));
