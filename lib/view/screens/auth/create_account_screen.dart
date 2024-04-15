@@ -280,7 +280,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                         email: email,
                                         password: password,
                                         // phone: '${CountryCode.fromCountryCode(_countryDialCode!).dialCode}$number',
-                                        phone: '',
+                                        phone: number,
                                         referralCode: _referTextController.text.trim(),
                                       );
                                       await authProvider.registration(signUpModel, config).then((status) async {

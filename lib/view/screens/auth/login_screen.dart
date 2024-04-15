@@ -257,7 +257,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 String email = _emailController!.text.trim();
 
                                 if(!Provider.of<SplashProvider>(context, listen: false).configModel!.emailVerification!){
-                                  email = countryCode! + _emailController!.text.trim();
+                                  email = _emailController!.text.trim();
                                 }
 
 
